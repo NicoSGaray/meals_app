@@ -63,6 +63,14 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
       activePageTitle = 'Your Favorites';
     }
 
+    if (_selectedPageIndex == 2) {
+      final favoriteMeals = ref.watch(favoriteMealsProvider);
+      activePage = MealsScreen(
+        meals: favoriteMeals,
+      );
+      activePageTitle = 'Meal Prep';
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(activePageTitle),
@@ -83,6 +91,10 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
             icon: Icon(Icons.star),
             label: 'Favorites',
           ),
+          //Meal Prep Tab selection
+          BottomNavigationBarItem(
+            icon: Icon(Icons.restaurant),
+            label: 'Meal Prep'),
         ],
       ),
     );

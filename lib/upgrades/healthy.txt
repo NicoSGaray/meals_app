@@ -1,0 +1,5 @@
+art
+
+1. add calories and nutrition facts to the data and data tables of every meal
+
+2. make a new healthy slider 
