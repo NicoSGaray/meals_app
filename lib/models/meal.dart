@@ -25,6 +25,7 @@ class Meal {
     required this.isLactoseFree,
     required this.isVegan,
     required this.isVegetarian,
+    required this.calories, // stores calories for each meal
   });
 
   final String id;
@@ -40,4 +41,5 @@ class Meal {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
+  final int calories;
 }

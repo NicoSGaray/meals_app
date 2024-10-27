@@ -91,6 +91,7 @@ const dummyMeals = [
     isVegan: true,
     isVegetarian: true,
     isLactoseFree: true,
+    calories: 560, // estimated calories
   ),
   Meal(
     id: 'm2',
@@ -119,6 +120,7 @@ const dummyMeals = [
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: false,
+    calories: 700, // estimated calories
   ),
   Meal(
     id: 'm3',
@@ -151,6 +153,7 @@ const dummyMeals = [
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: true,
+    calories: 500, // estimated calories
   ),
   Meal(
     id: 'm4',
@@ -186,6 +189,7 @@ const dummyMeals = [
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: false,
+    calories: 700, // estimated calories
   ),
   Meal(
     id: 'm5',
@@ -222,6 +226,7 @@ const dummyMeals = [
     isVegan: false,
     isVegetarian: true,
     isLactoseFree: true,
+    calories: 350, // estimated calories
   ),
   Meal(
     id: 'm6',
@@ -258,6 +263,7 @@ const dummyMeals = [
     isVegan: false,
     isVegetarian: true,
     isLactoseFree: false,
+    calories: 450, // estimated calories
   ),
   Meal(
     id: 'm7',
@@ -289,6 +295,7 @@ const dummyMeals = [
     isVegan: false,
     isVegetarian: true,
     isLactoseFree: false,
+    calories: 350, // estimated calories
   ),
   Meal(
     id: 'm8',
@@ -322,6 +329,7 @@ const dummyMeals = [
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: true,
+    calories: 600, // estimated calories
   ),
   Meal(
     id: 'm9',
@@ -371,6 +379,7 @@ const dummyMeals = [
     isVegan: false,
     isVegetarian: true,
     isLactoseFree: false,
+    calories: 450, // estimated calories
   ),
   Meal(
     id: 'm10',
@@ -405,5 +414,6 @@ const dummyMeals = [
     isVegan: true,
     isVegetarian: true,
     isLactoseFree: true,
+    calories: 300, // estimated calories
   ),
 ];
