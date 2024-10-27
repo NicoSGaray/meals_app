@@ -6,6 +6,7 @@ enum Filters {
   lactoseFree,
   vegetarian,
   vegan,
+  healthy, //new filter to allow users to view healthy meals
 }
 
 class FiltersNotifier extends StateNotifier<Map<Filters, bool>> {
@@ -15,6 +16,7 @@ class FiltersNotifier extends StateNotifier<Map<Filters, bool>> {
           Filters.lactoseFree: false,
           Filters.vegetarian: false,
           Filters.vegan: false,
+          Filters.healthy: false, //new filter that tracks healthy meals
         });
 
   void setFilters(Map<Filters, bool> chosenFilters) {
@@ -29,27 +31,34 @@ class FiltersNotifier extends StateNotifier<Map<Filters, bool>> {
   }
 }
 
-final filtersProvider = StateNotifierProvider<FiltersNotifier, Map<Filters, bool>>(
+final filtersProvider =
+    StateNotifierProvider<FiltersNotifier, Map<Filters, bool>>(
   (ref) => FiltersNotifier(),
 );
 
 final filteredMealsProvider = Provider((ref) {
-  final meals =ref.watch(mealsProvider);
+  final meals = ref.watch(mealsProvider);
   final activeFilters = ref.watch(filtersProvider);
 
   return meals.where((meal) {
-      if (activeFilters[Filters.glutenFree]! && !meal.isGlutenFree) {
-        return false;
+    if (activeFilters[Filters.glutenFree]! && !meal.isGlutenFree) {
+      return false;
+    }
+    if (activeFilters[Filters.lactoseFree]! && !meal.isLactoseFree) {
+      return false;
+    }
+    if (activeFilters[Filters.vegetarian]! && !meal.isVegetarian) {
+      return false;
+    }
+    if (activeFilters[Filters.vegan]! && !meal.isVegan) {
+      return false;
+    }
+    if (activeFilters[Filters.healthy]!) {
+      // filters calories by range
+      if (meal.calories < 300 || meal.calories > 600) {
+        return false; // ensures meals fit the 'healthy' range
       }
-      if (activeFilters[Filters.lactoseFree]! && !meal.isLactoseFree) {
-        return false;
-      }
-      if (activeFilters[Filters.vegetarian]! && !meal.isVegetarian) {
-        return false;
-      }
-      if (activeFilters[Filters.vegan]! && !meal.isVegan) {
-        return false;
-      }
-      return true;
-    }).toList();
+    }
+    return true;
+  }).toList();
 });

@@ -70,6 +70,15 @@ class MealItem extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 12),
+                    Text(
+                      // new widget to display the calorie count
+                      '${meal.calories} Calories', // shows the calorie count of each meal
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
